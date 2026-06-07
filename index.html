@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Atiqur Safayat | Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0a0a0f;--bg-card:#12121a;--bg-card-hover:#1a1a28;--border:#2a2a3a;--text:#e4e4ef;--text-muted:#8888a0;--accent:#6c5ce7;--accent-light:#a29bfe;--accent-glow:rgba(108,92,231,0.15);--green:#00cec9;--green-glow:rgba(0,206,201,0.15);--gradient:linear-gradient(135deg,#6c5ce7,#00cec9)}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;background:var(--bg);color:var(--text);line-height:1.7;overflow-x:hidden}
+body::before{content:'';position:fixed;top:-50%;left:-50%;width:200%;height:200%;background:radial-gradient(ellipse at 20% 50%,rgba(108,92,231,0.08) 0%,transparent 50%),radial-gradient(ellipse at 80% 20%,rgba(0,206,201,0.06) 0%,transparent 50%),radial-gradient(ellipse at 50% 80%,rgba(108,92,231,0.04) 0%,transparent 50%);z-index:-1;animation:bgFloat 20s ease-in-out infinite}
+@keyframes bgFloat{0%,100%{transform:translate(0,0) rotate(0deg)}33%{transform:translate(2%,-2%) rotate(1deg)}66%{transform:translate(-1%,1%) rotate(-0.5deg)}}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:1rem 2rem;display:flex;justify-content:space-between;align-items:center;background:rgba(10,10,15,0.8);backdrop-filter:blur(20px);border-bottom:1px solid var(--border)}
+nav .logo{font-weight:800;font-size:1.2rem;background:var(--gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+nav .nav-links{display:flex;gap:2rem;list-style:none}
+nav .nav-links a{color:var(--text-muted);text-decoration:none;font-size:0.9rem;font-weight:500;transition:color 0.3s}
+nav .nav-links a:hover{color:var(--accent-light)}
+.hero{min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:6rem 2rem 4rem;position:relative}
+.hero-content{max-width:800px}
+.hero .badge{display:inline-flex;align-items:center;gap:0.5rem;padding:0.4rem 1rem;background:var(--accent-glow);border:1px solid rgba(108,92,231,0.3);border-radius:50px;font-size:0.85rem;color:var(--accent-light);margin-bottom:2rem}
+.hero .badge .dot{width:8px;height:8px;background:var(--green);border-radius:50%;animation:pulse 2s ease-in-out infinite}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:0.5;transform:scale(1.3)}}
+.hero h1{font-size:clamp(2.5rem,6vw,4.5rem);font-weight:900;line-height:1.1;margin-bottom:1.5rem;letter-spacing:-0.03em}
+.hero h1 .gradient{background:var(--gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero .subtitle{font-size:1.25rem;color:var(--text-muted);margin-bottom:2rem;max-width:600px;margin-left:auto;margin-right:auto}
+.hero .cta-row{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:0.5rem;padding:0.8rem 1.8rem;border-radius:12px;font-weight:600;font-size:0.95rem;text-decoration:none;transition:all 0.3s;cursor:pointer;border:none}
+.btn-primary{background:var(--gradient);color:white;box-shadow:0 4px 20px rgba(108,92,231,0.3)}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(108,92,231,0.4)}
+.btn-outline{background:transparent;color:var(--text);border:1px solid var(--border)}
+.btn-outline:hover{border-color:var(--accent);background:var(--accent-glow)}
+section{padding:6rem 2rem;max-width:1100px;margin:0 auto}
+.section-header{margin-bottom:3rem}
+.section-header h2{font-size:2rem;font-weight:800;margin-bottom:0.5rem;letter-spacing:-0.02em}
+.section-header p{color:var(--text-muted);font-size:1.05rem}
+.section-header .line{width:60px;height:4px;background:var(--gradient);border-radius:2px;margin-top:1rem}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:start}
+.about-text p{color:var(--text-muted);margin-bottom:1.2rem;font-size:1.05rem}
+.about-text strong{color:var(--text)}
+.about-stats{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.stat-card{background:var(--bg-card);border:1px solid var(--border);border-radius:16px;padding:1.5rem;text-align:center;transition:all 0.3s}
+.stat-card:hover{border-color:var(--accent);background:var(--bg-card-hover);transform:translateY(-2px)}
+.stat-card .number{font-size:2rem;font-weight:800;background:var(--gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.stat-card .label{font-size:0.85rem;color:var(--text-muted);margin-top:0.3rem}
+.skills-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1.5rem}
+.skill-category{background:var(--bg-card);border:1px solid var(--border);border-radius:16px;padding:1.8rem;transition:all 0.3s}
+.skill-category:hover{border-color:var(--accent);background:var(--bg-card-hover)}
+.skill-category h3{font-size:1.1rem;font-weight:700;margin-bottom:1rem;display:flex;align-items:center;gap:0.5rem}
+.skill-category h3 .icon{width:32px;height:32px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:1rem}
+.skill-category.tech h3 .icon{background:var(--accent-glow)}
+.skill-category.software h3 .icon{background:var(--green-glow)}
+.skill-category.lang h3 .icon{background:rgba(253,203,110,0.15)}
+.skill-tags{display:flex;flex-wrap:wrap;gap:0.5rem}
+.skill-tag{padding:0.35rem 0.85rem;background:rgba(255,255,255,0.05);border:1px solid var(--border);border-radius:8px;font-size:0.85rem;color:var(--text-muted);transition:all 0.2s}
+.skill-tag:hover{border-color:var(--accent);color:var(--text)}
+.timeline{position:relative;padding-left:2rem}
+.timeline::before{content:'';position:absolute;left:0;top:0;bottom:0;width:2px;background:var(--border)}
+.timeline-item{position:relative;margin-bottom:2.5rem;padding-left:1.5rem}
+.timeline-item::before{content:'';position:absolute;left:-2rem;top:0.5rem;width:12px;height:12px;background:var(--accent);border-radius:50%;border:3px solid var(--bg);box-shadow:0 0 0 3px var(--accent-glow)}
+.timeline-item .date{font-size:0.85rem;color:var(--accent-light);font-weight:600;margin-bottom:0.3rem}
+.timeline-item h3{font-size:1.15rem;font-weight:700;margin-bottom:0.2rem}
+.timeline-item .org{color:var(--text-muted);font-size:0.95rem;margin-bottom:0.8rem}
+.timeline-item ul{list-style:none;padding:0}
+.timeline-item ul li{position:relative;padding-left:1.2rem;margin-bottom:0.4rem;color:var(--text-muted);font-size:0.93rem}
+.timeline-item ul li::before{content:'→';position:absolute;left:0;color:var(--accent)}
+.projects-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:1.5rem}
+.project-card{background:var(--bg-card);border:1px solid var(--border);border-radius:16px;padding:2rem;transition:all 0.3s;position:relative;overflow:hidden}
+.project-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--gradient);opacity:0;transition:opacity 0.3s}
+.project-card:hover{border-color:var(--accent);background:var(--bg-card-hover);transform:translateY(-4px)}
+.project-card:hover::before{opacity:1}
+.project-card .project-icon{width:48px;height:48px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.5rem;margin-bottom:1.2rem}
+.project-card.songjog .project-icon{background:var(--accent-glow)}
+.project-card.songjogcare .project-icon{background:var(--green-glow)}
+.project-card.songjogshop .project-icon{background:rgba(253,203,110,0.15)}
+.project-card.ngo .project-icon{background:rgba(255,118,117,0.15)}
+.project-card h3{font-size:1.15rem;font-weight:700;margin-bottom:0.5rem}
+.project-card p{color:var(--text-muted);font-size:0.93rem;margin-bottom:1.2rem}
+.project-card .project-link{display:inline-flex;align-items:center;gap:0.4rem;color:var(--accent-light);text-decoration:none;font-size:0.9rem;font-weight:500;transition:gap 0.2s}
+.project-card .project-link:hover{gap:0.7rem}
+.edu-card{background:var(--bg-card);border:1px solid var(--border);border-radius:16px;padding:2rem;display:flex;gap:1.5rem;align-items:flex-start;margin-bottom:1.5rem;transition:all 0.3s}
+.edu-card:hover{border-color:var(--accent);background:var(--bg-card-hover)}
+.edu-card .edu-icon{width:48px;height:48px;border-radius:12px;background:var(--accent-glow);display:flex;align-items:center;justify-content:center;font-size:1.3rem;flex-shrink:0}
+.edu-card .edu-info h3{font-size:1.1rem;font-weight:700;margin-bottom:0.2rem}
+.edu-card .edu-info .edu-date{color:var(--accent-light);font-size:0.85rem;font-weight:600;margin-bottom:0.3rem}
+.edu-card .edu-info .edu-school{color:var(--text-muted);font-size:0.95rem}
+.contact-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:1rem}
+.contact-card{background:var(--bg-card);border:1px solid var(--border);border-radius:16px;padding:1.5rem;text-align:center;text-decoration:none;color:var(--text);transition:all 0.3s}
+.contact-card:hover{border-color:var(--accent);background:var(--bg-card-hover);transform:translateY(-2px)}
+.contact-card .contact-icon{font-size:1.8rem;margin-bottom:0.8rem}
+.contact-card h4{font-size:0.95rem;font-weight:600;margin-bottom:0.2rem}
+.contact-card p{color:var(--text-muted);font-size:0.85rem}
+footer{text-align:center;padding:3rem 2rem;border-top:1px solid var(--border);color:var(--text-muted);font-size:0.9rem}
+footer a{color:var(--accent-light);text-decoration:none}
+@media(max-width:768px){.about-grid{grid-template-columns:1fr}nav .nav-links{display:none}.hero h1{font-size:2.2rem}section{padding:4rem 1.5rem}}
+.fade-up{opacity:0;transform:translateY(30px);transition:all 0.6s ease}
+.fade-up.visible{opacity:1;transform:translateY(0)}
+</style>
+</head>
+<body>
+<nav>
+<div class="logo">AS</div>
+<ul class="nav-links">
+<li><a href="#about">About</a></li>
+<li><a href="#skills">Skills</a></li>
+<li><a href="#experience">Experience</a></li>
+<li><a href="#projects">Projects</a></li>
+<li><a href="#education">Education</a></li>
+<li><a href="#contact">Contact</a></li>
+</ul>
+</nav>
+<section class="hero">
+<div class="hero-content">
+<div class="badge"><span class="dot"></span>Available for opportunities</div>
+<h1>Hi, I'm<br><span class="gradient">Atiqur Safayat</span></h1>
+<p class="subtitle">Results-oriented CSE student &amp; developer specializing in AI/ML, full-stack web development, and cross-functional collaboration. Currently leading tech at <strong style="color:var(--text)">Songjog Foundation</strong>.</p>
+<div class="cta-row">
+<a href="#projects" class="btn btn-primary">View Projects ↓</a>
+<a href="#contact" class="btn btn-outline">Get in Touch →</a>
+</div>
+</div>
+</section>
+<section id="about">
+<div class="section-header">
+<h2>About Me</h2>
+<p>Developer, student, and tech lead building for social impact</p>
+<div class="line"></div>
+</div>
+<div class="about-grid">
+<div class="about-text">
+<p>I'm a <strong>Bachelor of Computer Science and Engineering</strong> student at United International University, currently serving as <strong>IT and Branding Executive</strong> at Songjog Caregiver Center and <strong>Secretary - Branding and Promotions</strong> at Songjog Volunteers Bangladesh (SVB).</p>
+<p>I specialize in designing and implementing innovative solutions for complex challenges, with expertise in <strong>full-stack web development</strong>, <strong>AI/ML</strong>, and <strong>digital branding</strong>. I'm adept at utilizing cutting-edge technologies to optimize processes and enhance overall efficiency.</p>
+<p>My work spans building and maintaining organizational websites, designing branding materials, implementing digital marketing strategies, and leading cross-functional teams to increase community impact.</p>
+</div>
+<div class="about-stats">
+<div class="stat-card"><div class="number">3+</div><div class="label">Live Projects</div></div>
+<div class="stat-card"><div class="number">4+</div><div class="label">Years Active</div></div>
+<div class="stat-card"><div class="number">10+</div><div class="label">Technologies</div></div>
+<div class="stat-card"><div class="number">3</div><div class="label">Organizations</div></div>
+</div>
+</div>
+</section>
+<section id="skills">
+<div class="section-header">
+<h2>Skills &amp; Expertise</h2>
+<p>Technologies and tools I work with</p>
+<div class="line"></div>
+</div>
+<div class="skills-grid">
+<div class="skill-category tech">
+<h3><span class="icon">⚡</span> Technical Skills</h3>
+<div class="skill-tags">
+<span class="skill-tag">C</span><span class="skill-tag">Python</span><span class="skill-tag">HTML</span><span class="skill-tag">CSS</span><span class="skill-tag">JavaScript</span><span class="skill-tag">Django</span><span class="skill-tag">React</span><span class="skill-tag">WordPress</span><span class="skill-tag">AppSheet</span><span class="skill-tag">AppScript</span><span class="skill-tag">SQL</span><span class="skill-tag">Git</span>
+</div>
+</div>
+<div class="skill-category software">
+<h3><span class="icon">🎨</span> Software Skills</h3>
+<div class="skill-tags">
+<span class="skill-tag">Adobe Illustrator</span><span class="skill-tag">Adobe Photoshop</span><span class="skill-tag">Adobe Premiere Pro</span><span class="skill-tag">Microsoft Office</span><span class="skill-tag">Canva</span><span class="skill-tag">Figma</span>
+</div>
+</div>
+<div class="skill-category lang">
+<h3><span class="icon">🌐</span> Languages</h3>
+<div class="skill-tags">
+<span class="skill-tag">English</span><span class="skill-tag">Bangla</span>
+</div>
+</div>
+</div>
+</section>
+<section id="experience">
+<div class="section-header">
+<h2>Experience</h2>
+<p>Where I've worked and contributed</p>
+<div class="line"></div>
+</div>
+<div class="timeline">
+<div class="timeline-item">
+<div class="date">March 2022 – Present</div>
+<h3>IT and Branding Executive</h3>
+<div class="org">Songjog Caregiver Center</div>
+<ul>
+<li>Led development and maintenance of the organization's website, enhancing functionality and user experience</li>
+<li>Designed branding materials including logos, brochures, and promotional materials to strengthen brand identity</li>
+<li>Implemented digital marketing strategies to increase online visibility and attract more clients and volunteers</li>
+<li>Provided technical support to staff and volunteers, troubleshooting IT issues and improving operational efficiency</li>
+</ul>
+</div>
+<div class="timeline-item">
+<div class="date">July 2023 – Present</div>
+<h3>Secretary – Branding and Promotions</h3>
+<div class="org">Songjog Volunteers Bangladesh (SVB)</div>
+<ul>
+<li>Coordinated branding and promotional activities including social media campaigns, events, and fundraising initiatives</li>
+<li>Designed and produced marketing materials to raise awareness about SVB's mission and projects</li>
+<li>Managed communication channels including email newsletters and website updates for stakeholders</li>
+<li>Collaborated with team members to develop innovative strategies for increasing SVB's impact and reach</li>
+</ul>
+</div>
+</div>
+</section>
+<section id="projects">
+<div class="section-header">
+<h2>Featured Projects</h2>
+<p>Platforms and products I've built</p>
+<div class="line"></div>
+</div>
+<div class="projects-grid">
+<div class="project-card songjog">
+<div class="project-icon">🏛️</div>
+<h3>Songjog.org</h3>
+<p>Main platform for Songjog Foundation — the central hub for the organization's mission, programs, and community engagement.</p>
+<a href="https://songjog.org" class="project-link" target="_blank" rel="noopener">Visit site →</a>
+</div>
+<div class="project-card songjogcare">
+<div class="project-icon">💚</div>
+<h3>SongjogCare.com</h3>
+<p>Care &amp; support services platform connecting caregivers with those in need, streamlining service delivery and client management.</p>
+<a href="https://songjogcare.com" class="project-link" target="_blank" rel="noopener">Visit site →</a>
+</div>
+<div class="project-card songjogshop">
+<div class="project-icon">🛒</div>
+<h3>SongjogShop.com</h3>
+<p>E-commerce platform for Songjog products, enabling the foundation to sell merchandise and generate sustainable revenue.</p>
+<a href="https://songjogshop.com" class="project-link" target="_blank" rel="noopener">Visit site →</a>
+</div>
+<div class="project-card ngo">
+<div class="project-icon">📦</div>
+<h3>NGO Inventory System</h3>
+<p>Full-stack inventory management system built with Django + React. Features security audits, stock tracking, and reporting.</p>
+<a href="https://github.com/atiqursafayat/ngo-inventory" class="project-link" target="_blank" rel="noopener">View on GitHub →</a>
+</div>
+</div>
+</section>
+<section id="education">
+<div class="section-header">
+<h2>Education</h2>
+<p>Academic background</p>
+<div class="line"></div>
+</div>
+<div class="edu-card">
+<div class="edu-icon">🎓</div>
+<div class="edu-info">
+<h3>Bachelor of Computer Science and Engineering</h3>
+<div class="edu-date">September 2023 – Present</div>
+<div class="edu-school">United International University</div>
+</div>
+</div>
+<div class="edu-card">
+<div class="edu-icon">📘</div>
+<div class="edu-info">
+<h3>HSC (Science)</h3>
+<div class="edu-date">May 2020 – February 2023</div>
+<div class="edu-school">Dr. Mahbubur Rahman Mollah College</div>
+</div>
+</div>
+</section>
+<section id="contact">
+<div class="section-header">
+<h2>Get in Touch</h2>
+<p>Let's connect and build something together</p>
+<div class="line"></div>
+</div>
+<div class="contact-grid">
+<a href="mailto:atiqursafayat@gmail.com" class="contact-card">
+<div class="contact-icon">📧</div><h4>Email</h4><p>atiqursafayat@gmail.com</p>
+</a>
+<a href="tel:+8801521715878" class="contact-card">
+<div class="contact-icon">📱</div><h4>Phone</h4><p>+880 1521 715878</p>
+</a>
+<a href="https://github.com/atiqursafayat" target="_blank" rel="noopener" class="contact-card">
+<div class="contact-icon">💻</div><h4>GitHub</h4><p>@atiqursafayat</p>
+</a>
+<a href="https://songjog.org" target="_blank" rel="noopener" class="contact-card">
+<div class="contact-icon">🌐</div><h4>Website</h4><p>songjog.org</p>
+</a>
+</div>
+<div style="margin-top:1.5rem;text-align:center;color:var(--text-muted);font-size:0.9rem;">📍 22/2, Khanikaloy, East Mollartek, Dakshinkhan, Dhaka-1230</div>
+</section>
+<footer>
+<p>© 2026 Atiqur Safayat · Built with ❤️ · <a href="https://github.com/atiqursafayat">GitHub</a></p>
+</footer>
+<script>
+const observer=new IntersectionObserver((entries)=>{entries.forEach(entry=>{if(entry.isIntersecting)entry.target.classList.add('visible')})},{threshold:0.1});
+document.querySelectorAll('section').forEach(el=>{el.classList.add('fade-up');observer.observe(el)});
+document.querySelector('.hero').classList.add('visible');
+</script>
+</body>
+</html>
